@@ -1,3 +1,8 @@
+#ifdef _WIN32
+#define CLEAR "cls"
+#else
+#define CLEAR "clear"
+#endif
 
 #include <stdio.h>	/* print, scanf */
 #include <string.h>
@@ -62,7 +67,7 @@ void menuPrincipal()
 	volver a interar y pedir nuevamente la opción. */
  
 	do {
-		system("cls");
+		system(CLEAR);
  
 		tituloPrincipal();
  
@@ -122,7 +127,7 @@ void menuInsertar()
 	char respuesta[MAX];
  
 	do {
-		system("cls");
+		system(CLEAR);
 		tituloPrincipal();
 		printf("\n\t\t\t==> INSERTAR PRODUCTO <==\n");
  
@@ -184,7 +189,7 @@ void menuBuscar()
 	char respuesta[MAX];
  
 	do {
-		system("cls");
+		system(CLEAR);
 		tituloPrincipal();
 		printf("\n\t\t\t==> BUSCAR PRODUCTO POR CÓDIGO <==\n");
  
@@ -226,7 +231,7 @@ void menuEliminar()
 	char respuesta[MAX];
  
 	do {
-		system("cls");
+		system(CLEAR);
 		tituloPrincipal();
 		printf("\n\t\t\t==> ELIMINAR PRODUCTO POR CÓDIGO <==\n");
  
@@ -280,13 +285,13 @@ void menuMostrar()
 	int cantidadTotal;
 	char respuesta[MAX];
  
-	system("cls");
+	system(CLEAR);
 	tituloPrincipal();
 	productos = obtenerProductos(&numeroProductos); /* Retorna un vector dinámico de productos */
  
 	if (numeroProductos == 0) {
 		printf("\n\tEl archivo está vacío!!\n");
-		system("pause>nul");
+		getchar();
  
 	} else {
 		printf("\n\t\t    ==> LISTADO DE PRODUCTOS REGISTRADOS <==\n");
@@ -319,7 +324,7 @@ void menuMostrar()
 				printf("\n\tOcurrió un error al guardar el reporte\n");
 			}
  
-			system("pause>nul");
+			getchar();
 		}
 	}
 }
@@ -332,7 +337,7 @@ void menuModificar()
 	char respuesta[MAX];
  
 	do {
-		system("cls");
+		system(CLEAR);
 		tituloPrincipal();
 		printf("\n\t\t\t==> MODIFICAR PRODUCTO POR CÓDIGO <==\n");
  
@@ -424,7 +429,7 @@ void menuEliminarFisica()
 	char respuesta[MAX];
  
  
-	system("cls");
+	system(CLEAR);
 	tituloPrincipal();
 	printf("\n\t\t==> ELIMINAR FÍSICAMENTE REGISTROS DEL ARCHIVO <==\n");
  
@@ -439,7 +444,7 @@ void menuEliminarFisica()
 			printf("\n\tOcurrió algún error en la eliminación física.\n");
 		}
  
-		system("pause>nul");
+		getchar();
 	}
 }
  
